@@ -1,0 +1,28 @@
+diff --git a/scripts/configure b/scripts/configure
+index 46b1549..bfd3265 100755
+--- a/scripts/configure
++++ b/scripts/configure
+@@ -7780,7 +7780,8 @@ case $target in
+ 
+         case $target in
+ 	*x86_64*)
+-	    CFLAGS="${CFLAGS} -m64 -fPIC -Werror=implicit-function-declaration"
++	    CFLAGS="${CFLAGS} -fPIC -Werror=implicit-function-declaration"
++      LDFLAGS="${LDFLAGS} -Wl,-mwasm64"
+ 	    ;;
+     esac
+     if test $usingOGL ; then
+diff --git a/scripts/configure.in b/scripts/configure.in
+index 83fd1c3..74f1c0f 100644
+--- a/scripts/configure.in
++++ b/scripts/configure.in
+@@ -1359,7 +1359,8 @@ case $target in
+     dnl 64-bit support for AMD Opteron
+     case $target in
+ 	*x86_64*)
+-	    CFLAGS="${CFLAGS} -m64 -fPIC -Werror=implicit-function-declaration"
++	    CFLAGS="${CFLAGS} -fPIC -Werror=implicit-function-declaration"
++      LDFLAGS="${LDFLAGS} -Wl,-mwasm64"
+ 	    ;;
+     esac
+     if test $usingOGL ; then
